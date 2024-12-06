@@ -20,4 +20,13 @@
   ></ion-input>
 
   <ion-button expand="block" (click)="searchClicked()">Search</ion-button>
+
+  <ion-card *ngIf="subject">
+    <ion-card-header>
+      <ion-card-title>{{ subject.nazevDlouhy }}</ion-card-title>
+      <ion-card-subtitle>{{ subject.katedra}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Kreditu: {{ subject.kreditu}} </ion-card-content>
+  </ion-card>
 </ion-content>

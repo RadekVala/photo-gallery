@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title> Tab 3 </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,5 +11,19 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-input
+    [(ngModel)]="katedra"
+    label="Department abbreviation"
+    label-placement="floating"
+    fill="solid"
+    placeholder="Enter text"
+  ></ion-input>
+
+  <ion-button expand="block" (click)="btnSearchClicked()">Search</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of data">
+      <ion-label>{{ item.nazev }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

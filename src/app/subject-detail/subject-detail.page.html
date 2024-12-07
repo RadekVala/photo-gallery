@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        icon="chevron-back-outline"
+        defaultHref="/tabs/tab3"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>subject-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">subject-detail</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{ item?.zkratka}}</ion-card-subtitle>
+      <ion-card-title>{{ item?.nazev }}</ion-card-title>
+
+      <ion-card-content>
+        Počet studentů: {{ item?.pocetStudentu }}
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

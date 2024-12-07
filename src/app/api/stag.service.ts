@@ -15,6 +15,18 @@ export class StagService {
     console.log(data);
     return data;
   }
+
+  async fetchSubjectsByKatedra(
+    katedra: string,
+    rok: string,
+  ): Promise<PredmetKatedry[]> {
+    const url = `${environment.apiUrl}/ws/services/rest2/predmety/getPredmetyByKatedra?outputFormat=JSON&katedra=${katedra}&rok=${rok}`;
+
+    const response = await fetch(url);
+    const data: PredmetByKatedraResponse = await response.json();
+    console.log(data);
+    return data.predmetKatedry;
+  }
 }
 
 export interface Predmet {
@@ -87,4 +99,31 @@ export interface Predmet {
   urovenVypoctena: string;
   automatickyUznavatZppZk: string;
   hodZaSemKombForma: string;
+}
+
+export interface PredmetByKatedraResponse {
+  predmetKatedry: PredmetKatedry[];
+}
+
+export interface PredmetKatedry {
+  katedra: string;
+  zkratka: string;
+  rok: string;
+  nazev: string;
+  semestr: string;
+  maVyuku: string;
+  vyukaZS: string;
+  vyukaLS: string;
+  jazyk1: any;
+  jazyk2: any;
+  jazyk3: any;
+  jazyk4: any;
+  nabizetPrijezdyEcts: string;
+  pocetStudentu: number;
+  aMax: any;
+  bMax: any;
+  cMax: any;
+  aSkut: number;
+  bSkut: number;
+  cSkut: number;
 }

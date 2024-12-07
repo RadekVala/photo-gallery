@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { PredmetKatedry, StagService } from "../api/stag.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-tab3",
@@ -12,12 +13,19 @@ export class Tab3Page {
 
   data?: PredmetKatedry[];
 
-  constructor(private stagService: StagService) {}
+  constructor(
+    private stagService: StagService,
+    private router: Router,
+  ) {}
 
   async btnSearchClicked() {
     this.data = await this.stagService.fetchSubjectsByKatedra(
       this.katedra,
       this.rok,
     );
+  }
+
+  goToDetail(item: PredmetKatedry) {
+    this.router.navigate(["/tabs/tab3/subject-detail"], { state: { item } });
   }
 }

@@ -22,7 +22,7 @@
   <ion-button expand="block" (click)="btnSearchClicked()">Search</ion-button>
 
   <ion-list>
-    <ion-item *ngFor="let item of data">
+    <ion-item *ngFor="let item of data" (click)="goToDetail(item)">
       <ion-label>{{ item.nazev }}</ion-label>
     </ion-item>
   </ion-list>
